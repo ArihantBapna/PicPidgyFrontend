@@ -27,7 +27,7 @@ export default function Home(){
 
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
-                tabBarActiveTintColor: 'purple',
+                tabBarActiveTintColor: 'green',
                 tabBarInactiveTintColor: 'gray',
             })}
         >

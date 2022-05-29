@@ -94,19 +94,19 @@ export default function RegisterScreen({ navigation }) {
                             <Input value={cPassword} type="password" onChangeText={updateCPassword}/>
                         </FormControl>
 
-                        <Button mt="2" colorScheme="indigo" onPress={registerClick}>
+                        <Button mt="2" colorScheme="green" onPress={registerClick}>
                             Sign up
                         </Button>
 
 
                         <HStack mt="6" justifyContent="center">
-                            <Text fontSize="sm" color="coolGray.600" _dark={{
-                                color: "warmGray.200"
+                            <Text fontSize="sm" color="green.600" _dark={{
+                                color: "green.200"
                             }}>
                                 Already registered?
                             </Text>
                             <Link onPress={() => navigation.navigate('Login')} _text={{
-                                color: "indigo.500",
+                                color: "green.500",
                                 fontWeight: "medium",
                                 fontSize: "sm"
                             }}>

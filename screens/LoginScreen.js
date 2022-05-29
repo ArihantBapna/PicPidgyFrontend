@@ -77,25 +77,25 @@ export default function LoginScreen({ navigation }) {
                             <Link _text={{
                                 fontSize: "xs",
                                 fontWeight: "500",
-                                color: "indigo.500"
+                                color: "green.500"
                             }} alignSelf="flex-end" mt="1">
                                 Forget Password?
                             </Link>
                         </FormControl>
 
-                        <Button mt="2" colorScheme="indigo" onPress={loginClick}>
+                        <Button mt="2" colorScheme="green" onPress={loginClick}>
                             Sign in
                         </Button>
 
 
                         <HStack mt="6" justifyContent="center">
                             <Text fontSize="sm" color="coolGray.600" _dark={{
-                                color: "warmGray.200"
+                                color: "green.200"
                             }}>
                                 I'm a new user.{" "}
                             </Text>
                             <Link onPress={() => navigation.navigate('Register')} _text={{
-                                color: "indigo.500",
+                                color: "green.500",
                                 fontWeight: "medium",
                                 fontSize: "sm"
                             }}>

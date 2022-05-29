@@ -6,6 +6,6 @@ export async function makeFetchRequest(url, body) {
             'Content-Type': 'application/json'
         },
         body: body
-    });
+    }).catch(err => {console.log(err)});
     return result.json();
 }
