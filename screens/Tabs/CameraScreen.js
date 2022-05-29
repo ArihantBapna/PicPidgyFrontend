@@ -17,6 +17,9 @@ export default function CameraScreen() {
     // Picture uri reference
     const [imageUri, setImageUri] = useState(null);
 
+    // Picture base64 reference
+    const [imageString, setImageString] = useState(null);
+
     useEffect(() => {
         (async () => {
             const { status } = await Camera.requestCameraPermissionsAsync();
@@ -33,20 +36,41 @@ export default function CameraScreen() {
     const takePicture = async () => {
         if (camera) {
             const data = await camera.takePictureAsync(null);
-            console.log(data.uri);
+            console.log(data);
             setImageUri(data.uri);
+            setImageString(data.base64);
         }
     }
 
     const uploadPicture = async () => {
-        const form = new FormData();
-        form.append("file", {
-           uri: imageUri,
-           type: "image/jpg"
+        let filename = imageUri.split('/').pop();
+        let match = /\.(\w+)$/.exec(filename);
+        let type = match ? `image/${match[1]}` : `image`;
+
+        // Upload the image using the fetch and FormData APIs
+        let formData = new FormData();
+        formData.append('file', {uri: imageUri, name: filename, type});
+        formData.append("uid", global.uid);
+
+        let result = await fetch("https://pic-pidgy.herokuapp.com/uploads/", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'content-type': 'multipart/form-data',
+            },
         });
 
+        let response = await result.json();
 
-        let response = await makeFetchRequest("http://0.0.0.0:3000/uploads/", form);
+        if(response.success){
+            navigator.navigate("Feed");
+        }
+        else{
+            // Something went wrong
+            console.log(response);
+            setUriNull();
+        }
+
     }
 
     const setUriNull = () => {
