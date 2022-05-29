@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {Button, HStack, Image, Pressable, Text, View} from "native-base";
 import {makeFetchRequest} from "../../util/makeFetchRequest";
 
-export default function CameraScreen() {
+export default function CameraScreen({navigation}) {
     // Permissions
     const [hasPermission, setHasPermission] = useState(null);
 
@@ -36,7 +36,6 @@ export default function CameraScreen() {
     const takePicture = async () => {
         if (camera) {
             const data = await camera.takePictureAsync(null);
-            console.log(data);
             setImageUri(data.uri);
             setImageString(data.base64);
         }
@@ -63,7 +62,7 @@ export default function CameraScreen() {
         let response = await result.json();
 
         if(response.success){
-            navigator.navigate("Feed");
+            navigation.navigate("Feed");
         }
         else{
             // Something went wrong

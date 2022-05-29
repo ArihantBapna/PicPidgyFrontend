@@ -31,7 +31,7 @@ export default function Home(){
                 tabBarInactiveTintColor: 'gray',
             })}
         >
-            <Tab.Screen name="Feed" component={FeedScreen} options={{ tabBarBadge: 3}} />
+            <Tab.Screen name="Feed" component={FeedScreen} />
             <Tab.Screen name="Camera" component={CameraScreen} />
             <Tab.Screen name="Leaderboard" component={LeaderboardScreen} />
         </Tab.Navigator>
