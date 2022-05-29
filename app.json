@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "PicPidgyFrontend",
+    "slug": "PicPidgyFrontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
