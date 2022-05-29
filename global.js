@@ -1,0 +1,1 @@
+global.uid = 0;
